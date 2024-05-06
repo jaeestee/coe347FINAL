@@ -1,0 +1,69 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    location    "2.7";
+    object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   nonuniform List<vector> 5((3.000373616 0.03542224523 0) (3.00243942 0.01541587097 0) (3.001274321 0.01640410076 0) (2.996944426 0.02750350072 0) (2.991990022 0.002989737215 0));
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           nonuniform 0();
+    }
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      uniform (3 0 0);
+        value           nonuniform List<vector> 3((3.000373616 0.03542224523 0) (3.001274321 0.01640410076 0) (2.991990022 0.002989737215 0));
+    }
+    bottom
+    {
+        type            slip;
+    }
+    top
+    {
+        type            slip;
+    }
+    obstacle
+    {
+        type            slip;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary11to4
+    {
+        type            processor;
+        value           nonuniform List<vector> 2((2.994493128 -0.004289094243 0) (3.008265237 0.07821092635 0));
+    }
+    procBoundary11to5
+    {
+        type            processor;
+        value           nonuniform List<vector> 3((2.992511314 0.01469626457 0) (3.003328428 0.0104446784 0) (3.003328428 0.0104446784 0));
+    }
+    procBoundary11to17
+    {
+        type            processor;
+        value           nonuniform List<vector> 2((2.984044533 -0.001107521079 0) (2.975910923 -0.002407873937 0));
+    }
+}
+
+
+// ************************************************************************* //

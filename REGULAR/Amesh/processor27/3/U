@@ -1,0 +1,74 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    location    "3";
+    object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   nonuniform List<vector> 5((2.865258944 -0.2075101936 0) (2.924594164 -0.2356895669 0) (3.001408491 -0.1102536324 0) (2.960627748 0.01293902617 0) (3.010378236 -0.1127410047 0));
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           nonuniform 0();
+    }
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      nonuniform 0();
+        value           nonuniform 0();
+    }
+    bottom
+    {
+        type            slip;
+    }
+    top
+    {
+        type            slip;
+    }
+    obstacle
+    {
+        type            slip;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary27to21
+    {
+        type            processor;
+        value           uniform (2.832643741 -0.1439588844 0);
+    }
+    procBoundary27to26
+    {
+        type            processor;
+        value           uniform (2.928659603 0.05355934074 0);
+    }
+    procBoundary27to28
+    {
+        type            processor;
+        value           nonuniform List<vector> 4((2.969920908 -0.08176102922 0) (2.969920908 -0.08176102922 0) (3.002806264 -0.03358512291 0) (3.008637967 -0.07822686248 0));
+    }
+    procBoundary27to33
+    {
+        type            processor;
+        value           nonuniform List<vector> 2((2.9657531 0.07857310332 0) (2.980041726 0.04207803015 0));
+    }
+}
+
+
+// ************************************************************************* //

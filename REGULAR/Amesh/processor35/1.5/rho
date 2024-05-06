@@ -1,0 +1,71 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "1.5";
+    object      rho;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [1 -3 0 0 0 0 0];
+
+internalField   nonuniform List<scalar> 10(1.374409892 1.394909854 1.37974544 1.393281993 1.385497432 1.379670445 1.37001724 1.395631008 1.422538847 1.457230707);
+
+boundaryField
+{
+    inlet
+    {
+        type            calculated;
+        value           nonuniform 0();
+    }
+    outlet
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 8(1.379667761 1.370017524 1.395630009 1.422537734 1.457229575 1.374433606 1.379747503 1.385489347);
+    }
+    bottom
+    {
+        type            calculated;
+        value           nonuniform 0();
+    }
+    top
+    {
+        type            calculated;
+        value           uniform 1.457230707;
+    }
+    obstacle
+    {
+        type            calculated;
+        value           nonuniform 0();
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary35to28
+    {
+        type            processor;
+        value           nonuniform List<scalar> 4(1.401790479 1.390071781 1.353780353 1.353780353);
+    }
+    procBoundary35to29
+    {
+        type            processor;
+        value           nonuniform List<scalar> 3(1.371378441 1.389226359 1.389226359);
+    }
+    procBoundary35to34
+    {
+        type            processor;
+        value           nonuniform List<scalar> 4(1.350021826 1.395264572 1.444189225 1.471114616);
+    }
+}
+
+
+// ************************************************************************* //

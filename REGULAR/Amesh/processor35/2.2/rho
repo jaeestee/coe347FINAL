@@ -1,0 +1,71 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "2.2";
+    object      rho;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [1 -3 0 0 0 0 0];
+
+internalField   nonuniform List<scalar> 10(1.374428785 1.39574183 1.379839493 1.394057975 1.38542145 1.37953894 1.369957306 1.395647515 1.422608411 1.457277193);
+
+boundaryField
+{
+    inlet
+    {
+        type            calculated;
+        value           nonuniform 0();
+    }
+    outlet
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 8(1.379540555 1.369956972 1.395647556 1.422608464 1.457277229 1.374401872 1.379828935 1.385422185);
+    }
+    bottom
+    {
+        type            calculated;
+        value           nonuniform 0();
+    }
+    top
+    {
+        type            calculated;
+        value           uniform 1.457277193;
+    }
+    obstacle
+    {
+        type            calculated;
+        value           nonuniform 0();
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary35to28
+    {
+        type            processor;
+        value           nonuniform List<scalar> 4(1.402008564 1.390864903 1.354249168 1.354249168);
+    }
+    procBoundary35to29
+    {
+        type            processor;
+        value           nonuniform List<scalar> 3(1.371348144 1.389422404 1.389422404);
+    }
+    procBoundary35to34
+    {
+        type            processor;
+        value           nonuniform List<scalar> 4(1.349945367 1.395463123 1.444408667 1.471233189);
+    }
+}
+
+
+// ************************************************************************* //

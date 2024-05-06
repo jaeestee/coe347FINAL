@@ -1,0 +1,76 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "1";
+    object      rho;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [1 -3 0 0 0 0 0];
+
+internalField   nonuniform List<scalar> 8(1.488440618 1.440727167 1.458435628 1.457039493 1.415058877 1.440944609 1.401519262 1.420616309);
+
+boundaryField
+{
+    inlet
+    {
+        type            calculated;
+        value           nonuniform 0();
+    }
+    outlet
+    {
+        type            calculated;
+        value           nonuniform 0();
+    }
+    bottom
+    {
+        type            calculated;
+        value           nonuniform 0();
+    }
+    top
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 2(1.401519262 1.420616309);
+    }
+    obstacle
+    {
+        type            calculated;
+        value           nonuniform 0();
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary33to26
+    {
+        type            processor;
+        value           uniform 1.4933068;
+    }
+    procBoundary33to27
+    {
+        type            processor;
+        value           nonuniform List<scalar> 2(1.540822523 1.314473919);
+    }
+    procBoundary33to32
+    {
+        type            processor;
+        value           nonuniform List<scalar> 3(1.405675938 1.400037115 1.400005158);
+    }
+    procBoundary33to34
+    {
+        type            processor;
+        value           nonuniform List<scalar> 4(1.352542641 1.431756891 1.450906108 1.45443858);
+    }
+}
+
+
+// ************************************************************************* //

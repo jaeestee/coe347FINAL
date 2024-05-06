@@ -1,0 +1,74 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    location    "3.9";
+    object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   nonuniform List<vector> 5((3.001434137 0.03307627285 0) (2.967584574 0.07948896688 0) (2.977274569 0.01657277627 0) (2.900309184 0.05651012807 0) (2.928949681 0.01168888452 0));
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           nonuniform 0();
+    }
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      nonuniform 0();
+        value           nonuniform 0();
+    }
+    bottom
+    {
+        type            slip;
+    }
+    top
+    {
+        type            slip;
+    }
+    obstacle
+    {
+        type            slip;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary10to4
+    {
+        type            processor;
+        value           uniform (3.008265618 0.07821590147 0);
+    }
+    procBoundary10to15
+    {
+        type            processor;
+        value           nonuniform List<vector> 4((3.002685525 0.1080906753 0) (3.002685525 0.1080906753 0) (2.866015065 0.2083654902 0) (2.832481773 0.1438655193 0));
+    }
+    procBoundary10to16
+    {
+        type            processor;
+        value           nonuniform List<vector> 2((2.834951545 0.03932985612 0) (2.891232152 0.006901501996 0));
+    }
+    procBoundary10to17
+    {
+        type            processor;
+        value           nonuniform List<vector> 3((2.984075571 -0.001065527549 0) (2.967975591 -0.004620612887 0) (2.936248209 -0.002249771859 0));
+    }
+}
+
+
+// ************************************************************************* //

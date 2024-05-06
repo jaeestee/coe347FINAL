@@ -1,0 +1,84 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "2.8";
+    object      T;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 1 0 0 0];
+
+internalField   nonuniform List<scalar> 5(1.017143738 1.016925177 1.027993548 1.017282155 1.052652199);
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           nonuniform 0();
+    }
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      nonuniform 0();
+        value           nonuniform 0();
+    }
+    bottom
+    {
+        type            slip;
+    }
+    top
+    {
+        type            slip;
+    }
+    obstacle
+    {
+        type            zeroGradient;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary9to3
+    {
+        type            processor;
+        value           nonuniform List<scalar> 2(1.004245618 1.011882979);
+    }
+    procBoundary9to4
+    {
+        type            processor;
+        value           nonuniform List<scalar> 2(1.010394169 0.9952828569);
+    }
+    procBoundary9to8
+    {
+        type            processor;
+        value           uniform 1.001686536;
+    }
+    procBoundary9to14
+    {
+        type            processor;
+        value           uniform 1.027198879;
+    }
+    procBoundary9to15
+    {
+        type            processor;
+        value           nonuniform List<scalar> 3(0.9933672371 0.9933672371 0.9576581108);
+    }
+    procBoundary9to20
+    {
+        type            processor;
+        value           uniform 1.094006489;
+    }
+}
+
+
+// ************************************************************************* //

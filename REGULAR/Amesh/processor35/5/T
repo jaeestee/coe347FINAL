@@ -1,0 +1,69 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "5";
+    object      T;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 1 0 0 0];
+
+internalField   nonuniform List<scalar> 10(1.028871745 1.032335416 1.02542961 1.028264047 1.022860621 1.012738074 1.000052488 1.002702919 1.007140128 1.016108122);
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           nonuniform 0();
+    }
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      uniform 1;
+        value           nonuniform List<scalar> 8(1.012738508 1.000052402 1.002702903 1.007140132 1.016108122 1.02886749 1.025421624 1.022858539);
+    }
+    bottom
+    {
+        type            slip;
+    }
+    top
+    {
+        type            slip;
+    }
+    obstacle
+    {
+        type            zeroGradient;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary35to28
+    {
+        type            processor;
+        value           nonuniform List<scalar> 4(1.032900387 1.024792363 1.006318306 1.006318306);
+    }
+    procBoundary35to29
+    {
+        type            processor;
+        value           nonuniform List<scalar> 3(1.03125826 1.035328588 1.035328588);
+    }
+    procBoundary35to34
+    {
+        type            processor;
+        value           nonuniform List<scalar> 4(0.9936557465 1.001684005 1.012927164 1.020094907);
+    }
+}
+
+
+// ************************************************************************* //

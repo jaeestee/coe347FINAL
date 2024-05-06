@@ -1,0 +1,82 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "2";
+    object      p;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [1 -1 -2 0 0 0 0];
+
+internalField   nonuniform List<scalar> 5(1.054007767 1.050678541 1.033391261 0.9619172835 0.9501101809);
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           nonuniform 0();
+    }
+    outlet
+    {
+        type            zeroGradient;
+    }
+    bottom
+    {
+        type            slip;
+    }
+    top
+    {
+        type            slip;
+    }
+    obstacle
+    {
+        type            zeroGradient;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary4to3
+    {
+        type            processor;
+        value           nonuniform List<scalar> 2(1.020781707 1.041855907);
+    }
+    procBoundary4to5
+    {
+        type            processor;
+        value           nonuniform List<scalar> 3(1.072008983 1.045088526 0.9985059105);
+    }
+    procBoundary4to9
+    {
+        type            processor;
+        value           nonuniform List<scalar> 2(1.05838977 1.047008863);
+    }
+    procBoundary4to10
+    {
+        type            processor;
+        value           uniform 1.018184629;
+    }
+    procBoundary4to11
+    {
+        type            processor;
+        value           nonuniform List<scalar> 2(0.9582217424 0.9733758896);
+    }
+    procBoundary4to15
+    {
+        type            processor;
+        value           uniform 0.9328015703;
+    }
+}
+
+
+// ************************************************************************* //

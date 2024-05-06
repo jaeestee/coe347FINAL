@@ -1,0 +1,69 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    location    "0.5";
+    object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   nonuniform List<vector> 5((3.014645396 0.02873588382 0) (3.014824699 0.02049450751 0) (3.014766598 0.01711867417 0) (3.012274296 0.03255719247 0) (3.012821947 0.007635376346 0));
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           nonuniform 0();
+    }
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      uniform (3 0 0);
+        value           nonuniform List<vector> 3((3.014645396 0.02873588382 0) (3.014766598 0.01711867417 0) (3.012821947 0.007635376346 0));
+    }
+    bottom
+    {
+        type            slip;
+    }
+    top
+    {
+        type            slip;
+    }
+    obstacle
+    {
+        type            slip;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary11to4
+    {
+        type            processor;
+        value           nonuniform List<vector> 2((3.001453294 0.00334122608 0) (3.014124172 0.08276498033 0));
+    }
+    procBoundary11to5
+    {
+        type            processor;
+        value           nonuniform List<vector> 3((3.011313866 0.01064190751 0) (3.020728632 0.02489426098 0) (3.020728632 0.02489426098 0));
+    }
+    procBoundary11to17
+    {
+        type            processor;
+        value           nonuniform List<vector> 2((3.00559272 0.0001613554254 0) (3.00004784 -0.002985352468 0));
+    }
+}
+
+
+// ************************************************************************* //

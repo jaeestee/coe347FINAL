@@ -1,0 +1,69 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "4.6";
+    object      T;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 1 0 0 0];
+
+internalField   nonuniform List<scalar> 10(1.028873532 1.03232952 1.025431742 1.028267453 1.022861232 1.01273795 1.000052526 1.002702909 1.00714013 1.016108126);
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           nonuniform 0();
+    }
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      uniform 1;
+        value           nonuniform List<scalar> 8(1.01273833 1.000052459 1.002702893 1.007140135 1.016108126 1.028869305 1.025424284 1.022859137);
+    }
+    bottom
+    {
+        type            slip;
+    }
+    top
+    {
+        type            slip;
+    }
+    obstacle
+    {
+        type            zeroGradient;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary35to28
+    {
+        type            processor;
+        value           nonuniform List<scalar> 4(1.032888746 1.024774942 1.006318477 1.006318477);
+    }
+    procBoundary35to29
+    {
+        type            processor;
+        value           nonuniform List<scalar> 3(1.031258309 1.035323021 1.035323021);
+    }
+    procBoundary35to34
+    {
+        type            processor;
+        value           nonuniform List<scalar> 4(0.9936557853 1.001683986 1.01292716 1.02009491);
+    }
+}
+
+
+// ************************************************************************* //

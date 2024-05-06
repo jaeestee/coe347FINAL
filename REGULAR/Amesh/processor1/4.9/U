@@ -1,0 +1,79 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    location    "4.9";
+    object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   nonuniform List<vector> 5((3 -1.802949317e-15 0) (3 -1.408127499e-15 0) (3 -3.70417602e-15 0) (3 -1.0841837e-11 0) (2.999999984 -2.93215916e-08 0));
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           nonuniform 0();
+    }
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      nonuniform 0();
+        value           nonuniform 0();
+    }
+    bottom
+    {
+        type            slip;
+    }
+    top
+    {
+        type            slip;
+    }
+    obstacle
+    {
+        type            slip;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary1to0
+    {
+        type            processor;
+        value           uniform (3 -2.125444557e-15 0);
+    }
+    procBoundary1to2
+    {
+        type            processor;
+        value           uniform (3.000000014 4.805137004e-09 0);
+    }
+    procBoundary1to6
+    {
+        type            processor;
+        value           uniform (3 -4.059643926e-15 0);
+    }
+    procBoundary1to7
+    {
+        type            processor;
+        value           nonuniform List<vector> 5((3 -4.636426032e-15 0) (3 -4.636426032e-15 0) (3 -3.58878577e-16 0) (3 -4.636426032e-15 0) (2.999989885 -1.766157153e-05 0));
+    }
+    procBoundary1to8
+    {
+        type            processor;
+        value           uniform (3.00000028 3.19776317e-07 0);
+    }
+}
+
+
+// ************************************************************************* //

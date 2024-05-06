@@ -1,0 +1,69 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    location    "1.4";
+    object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   nonuniform List<vector> 5((2.999999975 -6.066697356e-08 0) (2.99949941 -0.0007722480048 0) (2.994605106 -0.007677232668 0) (2.998280522 -0.008355732738 0) (2.995936658 -0.03546432169 0));
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           nonuniform 0();
+    }
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      nonuniform 0();
+        value           nonuniform 0();
+    }
+    bottom
+    {
+        type            slip;
+    }
+    top
+    {
+        type            slip;
+    }
+    obstacle
+    {
+        type            slip;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary3to2
+    {
+        type            processor;
+        value           nonuniform List<vector> 3((3.000000017 -7.137459023e-09 0) (2.999988535 -2.856548388e-05 0) (2.999988535 -2.856548388e-05 0));
+    }
+    procBoundary3to4
+    {
+        type            processor;
+        value           nonuniform List<vector> 2((2.98703806 -0.01662539439 0) (2.989341052 -0.02773712365 0));
+    }
+    procBoundary3to9
+    {
+        type            processor;
+        value           nonuniform List<vector> 2((2.993943742 -0.03392475767 0) (2.993021659 -0.03661350532 0));
+    }
+}
+
+
+// ************************************************************************* //

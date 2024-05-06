@@ -1,0 +1,84 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "1.5";
+    object      T;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 1 0 0 0];
+
+internalField   nonuniform List<scalar> 5(1.015187627 1.014356923 1.010380026 0.9953138521 0.9991475153);
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           nonuniform 0();
+    }
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      nonuniform 0();
+        value           nonuniform 0();
+    }
+    bottom
+    {
+        type            slip;
+    }
+    top
+    {
+        type            slip;
+    }
+    obstacle
+    {
+        type            zeroGradient;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary4to3
+    {
+        type            processor;
+        value           nonuniform List<scalar> 2(1.005913037 1.011889711);
+    }
+    procBoundary4to5
+    {
+        type            processor;
+        value           nonuniform List<scalar> 3(1.020067747 1.01289931 1.001720828);
+    }
+    procBoundary4to9
+    {
+        type            processor;
+        value           nonuniform List<scalar> 2(1.016924785 1.017269223);
+    }
+    procBoundary4to10
+    {
+        type            processor;
+        value           uniform 1.024739421;
+    }
+    procBoundary4to11
+    {
+        type            processor;
+        value           nonuniform List<scalar> 2(0.9937192188 1.006201257);
+    }
+    procBoundary4to15
+    {
+        type            processor;
+        value           uniform 0.9933620665;
+    }
+}
+
+
+// ************************************************************************* //

@@ -1,0 +1,74 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    location    "3.9";
+    object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   nonuniform List<vector> 5((2.874510195 -0.002011851701 0) (2.83506009 -0.02961349472 0) (2.891501285 -0.008637832874 0) (2.905092855 -0.04922496921 0) (2.938571909 -0.007970064443 0));
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           nonuniform 0();
+    }
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      nonuniform 0();
+        value           nonuniform 0();
+    }
+    bottom
+    {
+        type            slip;
+    }
+    top
+    {
+        type            slip;
+    }
+    obstacle
+    {
+        type            slip;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary22to16
+    {
+        type            processor;
+        value           nonuniform List<vector> 3((2.88189584 0.004840474352 0) (2.797551103 -0.02796783201 0) (2.797551103 -0.02796783201 0));
+    }
+    procBoundary22to21
+    {
+        type            processor;
+        value           nonuniform List<vector> 2((2.752432573 -0.09597698344 0) (2.833065898 -0.1430589806 0));
+    }
+    procBoundary22to28
+    {
+        type            processor;
+        value           nonuniform List<vector> 2((2.970580126 -0.08051599885 0) (2.982780836 -0.01836330822 0));
+    }
+    procBoundary22to29
+    {
+        type            processor;
+        value           nonuniform List<vector> 3((2.891611368 0.002017105418 0) (2.906228576 0.001120119047 0) (2.940071556 0.002089941011 0));
+    }
+}
+
+
+// ************************************************************************* //

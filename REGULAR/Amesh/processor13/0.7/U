@@ -1,0 +1,79 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    location    "0.7";
+    object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   nonuniform List<vector> 5((3 2.096566023e-15 0) (3 6.655461318e-16 0) (3 -1.279356624e-15 0) (2.987330416 -0.003715139315 0) (2.973872857 -0.004532478831 0));
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           nonuniform 0();
+    }
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      nonuniform 0();
+        value           nonuniform 0();
+    }
+    bottom
+    {
+        type            slip;
+    }
+    top
+    {
+        type            slip;
+    }
+    obstacle
+    {
+        type            slip;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary13to7
+    {
+        type            processor;
+        value           nonuniform List<vector> 4((3 1.71088443e-15 0) (3 2.661062334e-15 0) (2.998497067 -0.002427647646 0) (2.998497067 -0.002427647646 0));
+    }
+    procBoundary13to12
+    {
+        type            processor;
+        value           nonuniform List<vector> 2((3 1.99827975e-15 0) (3 -1.227562216e-16 0));
+    }
+    procBoundary13to14
+    {
+        type            processor;
+        value           uniform (2.99541524 -0.007834963403 0);
+    }
+    procBoundary13to19
+    {
+        type            processor;
+        value           nonuniform List<vector> 4((3 -2.30582495e-15 0) (3 -2.30582495e-15 0) (3 -5.750931387e-16 0) (3 -2.30582495e-15 0));
+    }
+    procBoundary13to20
+    {
+        type            processor;
+        value           uniform (2.958830904 -0.0205302222 0);
+    }
+}
+
+
+// ************************************************************************* //

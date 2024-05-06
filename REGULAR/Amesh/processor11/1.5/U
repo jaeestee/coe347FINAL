@@ -1,0 +1,69 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    location    "1.5";
+    object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   nonuniform List<vector> 5((3.000623347 0.03550228848 0) (3.002200226 0.01542107496 0) (3.001101449 0.01650855002 0) (2.997318048 0.0276218917 0) (2.99213886 0.003237892252 0));
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           nonuniform 0();
+    }
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      uniform (3 0 0);
+        value           nonuniform List<vector> 3((3.000623347 0.03550228848 0) (3.001101449 0.01650855002 0) (2.99213886 0.003237892252 0));
+    }
+    bottom
+    {
+        type            slip;
+    }
+    top
+    {
+        type            slip;
+    }
+    obstacle
+    {
+        type            slip;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary11to4
+    {
+        type            processor;
+        value           nonuniform List<vector> 2((2.995646739 -0.004563750057 0) (3.008334367 0.07817321568 0));
+    }
+    procBoundary11to5
+    {
+        type            processor;
+        value           nonuniform List<vector> 3((2.992589924 0.01478800058 0) (3.003482227 0.01081168344 0) (3.003482227 0.01081168344 0));
+    }
+    procBoundary11to17
+    {
+        type            processor;
+        value           nonuniform List<vector> 2((2.984754687 -0.001137005461 0) (2.976148563 -0.002394422384 0));
+    }
+}
+
+
+// ************************************************************************* //

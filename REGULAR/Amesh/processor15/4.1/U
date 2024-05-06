@@ -1,0 +1,74 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    location    "4.1";
+    object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   nonuniform List<vector> 5((3.010299804 0.1128127599 0) (2.923750976 0.2360341835 0) (3.00185179 0.1108948168 0) (2.866366369 0.2069082463 0) (2.833452802 0.1428861418 0));
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           nonuniform 0();
+    }
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      nonuniform 0();
+        value           nonuniform 0();
+    }
+    bottom
+    {
+        type            slip;
+    }
+    top
+    {
+        type            slip;
+    }
+    obstacle
+    {
+        type            slip;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary15to4
+    {
+        type            processor;
+        value           uniform (3.008256563 0.07818813839 0);
+    }
+    procBoundary15to9
+    {
+        type            processor;
+        value           nonuniform List<vector> 3((2.980073714 -0.04209343246 0) (2.96061926 -0.01295214238 0) (2.96061926 -0.01295214238 0));
+    }
+    procBoundary15to10
+    {
+        type            processor;
+        value           nonuniform List<vector> 4((3.001382441 0.03400642586 0) (2.970029304 0.08060754884 0) (2.970029304 0.08060754884 0) (2.904688947 0.04972769079 0));
+    }
+    procBoundary15to21
+    {
+        type            processor;
+        value           uniform (2.752637875 0.09575569543 0);
+    }
+}
+
+
+// ************************************************************************* //

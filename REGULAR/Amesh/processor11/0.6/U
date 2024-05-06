@@ -1,0 +1,69 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    location    "0.6";
+    object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   nonuniform List<vector> 5((3.01613754 0.03379599306 0) (3.013346195 0.01901224564 0) (3.015210669 0.01781327371 0) (3.004492472 0.02872961934 0) (3.0070601 0.005120501139 0));
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           nonuniform 0();
+    }
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      uniform (3 0 0);
+        value           nonuniform List<vector> 3((3.01613754 0.03379599306 0) (3.015210669 0.01781327371 0) (3.0070601 0.005120501139 0));
+    }
+    bottom
+    {
+        type            slip;
+    }
+    top
+    {
+        type            slip;
+    }
+    obstacle
+    {
+        type            slip;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary11to4
+    {
+        type            processor;
+        value           nonuniform List<vector> 2((2.991160579 -0.002751803819 0) (3.011329707 0.08063968353 0));
+    }
+    procBoundary11to5
+    {
+        type            processor;
+        value           nonuniform List<vector> 3((3.008965519 0.01134495341 0) (3.012119681 0.01956207177 0) (3.012119681 0.01956207177 0));
+    }
+    procBoundary11to17
+    {
+        type            processor;
+        value           nonuniform List<vector> 2((2.991979702 -0.00108395695 0) (2.990927146 -0.002520787699 0));
+    }
+}
+
+
+// ************************************************************************* //

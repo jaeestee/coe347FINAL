@@ -1,0 +1,79 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    location    "4.8";
+    object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   nonuniform List<vector> 5((3 -8.650976442e-17 0) (3 -1.486726094e-15 0) (3 -2.448139646e-15 0) (3 -1.084286178e-11 0) (2.999999984 -2.932158773e-08 0));
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           nonuniform 0();
+    }
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      nonuniform 0();
+        value           nonuniform 0();
+    }
+    bottom
+    {
+        type            slip;
+    }
+    top
+    {
+        type            slip;
+    }
+    obstacle
+    {
+        type            slip;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary1to0
+    {
+        type            processor;
+        value           uniform (3 -1.319423668e-15 0);
+    }
+    procBoundary1to2
+    {
+        type            processor;
+        value           uniform (3.000000014 4.805132095e-09 0);
+    }
+    procBoundary1to6
+    {
+        type            processor;
+        value           uniform (3 -3.224368641e-15 0);
+    }
+    procBoundary1to7
+    {
+        type            processor;
+        value           nonuniform List<vector> 5((3 -2.516609682e-15 0) (3 -2.516609682e-15 0) (3 -8.196821058e-16 0) (3 -2.516609682e-15 0) (2.999989885 -1.766156986e-05 0));
+    }
+    procBoundary1to8
+    {
+        type            processor;
+        value           uniform (3.00000028 3.197769664e-07 0);
+    }
+}
+
+
+// ************************************************************************* //

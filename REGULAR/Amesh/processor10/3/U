@@ -1,0 +1,74 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    location    "3";
+    object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   nonuniform List<vector> 5((3.001656784 0.03345624783 0) (2.968966099 0.07885091961 0) (2.976883463 0.0166734611 0) (2.901738354 0.05219323953 0) (2.929470921 0.01127530577 0));
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           nonuniform 0();
+    }
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      nonuniform 0();
+        value           nonuniform 0();
+    }
+    bottom
+    {
+        type            slip;
+    }
+    top
+    {
+        type            slip;
+    }
+    obstacle
+    {
+        type            slip;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary10to4
+    {
+        type            processor;
+        value           uniform (3.008261138 0.07822578602 0);
+    }
+    procBoundary10to15
+    {
+        type            processor;
+        value           nonuniform List<vector> 4((3.003304137 0.1091416299 0) (3.003304137 0.1091416299 0) (2.866684754 0.2079979071 0) (2.833105624 0.1428811074 0));
+    }
+    procBoundary10to16
+    {
+        type            processor;
+        value           nonuniform List<vector> 2((2.837174229 0.03812292693 0) (2.891232313 0.006238193221 0));
+    }
+    procBoundary10to17
+    {
+        type            processor;
+        value           nonuniform List<vector> 3((2.984134384 -0.0008962704972 0) (2.968069276 -0.004416995172 0) (2.93614104 -0.002262639182 0));
+    }
+}
+
+
+// ************************************************************************* //

@@ -1,0 +1,69 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    location    "2.1";
+    object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   nonuniform List<vector> 8((2.999339807 0.001322710258 0) (2.998204387 0.003813749299 0) (2.999999228 1.840836737e-06 0) (2.999997482 1.149529806e-05 0) (2.99998852 2.854899909e-05 0) (3.000000016 -3.100040098e-09 0) (3.000000016 7.170481156e-09 0) (2.999999975 6.076466776e-08 0));
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           nonuniform 0();
+    }
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      nonuniform 0();
+        value           nonuniform 0();
+    }
+    bottom
+    {
+        type            slip;
+    }
+    top
+    {
+        type            slip;
+    }
+    obstacle
+    {
+        type            slip;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary32to26
+    {
+        type            processor;
+        value           nonuniform List<vector> 4((2.982778455 0.03450054065 0) (2.966723247 0.07474737751 0) (2.999724554 0.00053092665 0) (2.999724554 0.00053092665 0));
+    }
+    procBoundary32to31
+    {
+        type            processor;
+        value           nonuniform List<vector> 2((3.000000281 -3.197921187e-07 0) (3.000000014 -4.800398503e-09 0));
+    }
+    procBoundary32to33
+    {
+        type            processor;
+        value           nonuniform List<vector> 3((2.993943135 0.03392668548 0) (2.998267846 0.008361088208 0) (2.99949653 0.0007737191212 0));
+    }
+}
+
+
+// ************************************************************************* //

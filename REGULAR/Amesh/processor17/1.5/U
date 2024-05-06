@@ -1,0 +1,69 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    location    "1.5";
+    object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   nonuniform List<vector> 5((2.984754687 -0.001137005461 0) (2.976148563 -0.002394422384 0) (2.968415724 -0.004664018043 0) (2.966576638 0.00030089701 0) (2.936636922 -0.002104715268 0));
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           nonuniform 0();
+    }
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      uniform (3 0 0);
+        value           nonuniform List<vector> 2((2.976148563 -0.002394422384 0) (2.966576638 0.00030089701 0));
+    }
+    bottom
+    {
+        type            slip;
+    }
+    top
+    {
+        type            slip;
+    }
+    obstacle
+    {
+        type            slip;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary17to10
+    {
+        type            processor;
+        value           nonuniform List<vector> 3((3.001372372 0.03299982126 0) (2.977514858 0.01669029364 0) (2.929048313 0.01185204266 0));
+    }
+    procBoundary17to11
+    {
+        type            processor;
+        value           nonuniform List<vector> 2((2.997318048 0.0276218917 0) (2.99213886 0.003237892252 0));
+    }
+    procBoundary17to23
+    {
+        type            processor;
+        value           nonuniform List<vector> 3((2.947124751 -0.001474530786 0) (2.947124751 -0.001474530786 0) (2.905153715 -0.001437377652 0));
+    }
+}
+
+
+// ************************************************************************* //

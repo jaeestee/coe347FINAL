@@ -1,0 +1,74 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    location    "5";
+    object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   nonuniform List<vector> 5((3 6.656651788e-16 0) (2.987330668 0.00371864062 0) (2.973872388 0.004539768307 0) (3 2.595494228e-17 0) (3 -1.032237873e-16 0));
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           nonuniform 0();
+    }
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      nonuniform 0();
+        value           nonuniform 0();
+    }
+    bottom
+    {
+        type            slip;
+    }
+    top
+    {
+        type            slip;
+    }
+    obstacle
+    {
+        type            slip;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary19to13
+    {
+        type            processor;
+        value           nonuniform List<vector> 4((3 1.866101145e-15 0) (3 5.792689806e-16 0) (3 5.792689806e-16 0) (2.987330669 -0.0037186671 0));
+    }
+    procBoundary19to18
+    {
+        type            processor;
+        value           uniform (3 -7.31311718e-17 0);
+    }
+    procBoundary19to20
+    {
+        type            processor;
+        value           uniform (2.958831089 0.02051558093 0);
+    }
+    procBoundary19to25
+    {
+        type            processor;
+        value           nonuniform List<vector> 4((2.998496492 0.002428982831 0) (2.995417029 0.007831934511 0) (3 1.368853827e-15 0) (3 2.271007739e-15 0));
+    }
+}
+
+
+// ************************************************************************* //

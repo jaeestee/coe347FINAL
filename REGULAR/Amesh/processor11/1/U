@@ -1,0 +1,69 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    location    "1";
+    object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   nonuniform List<vector> 5((3.00255691 0.0361339397 0) (2.999308035 0.01570879502 0) (3.001581795 0.01645863596 0) (2.996228777 0.02907133998 0) (2.992928777 0.00285722073 0));
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           nonuniform 0();
+    }
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      uniform (3 0 0);
+        value           nonuniform List<vector> 3((3.00255691 0.0361339397 0) (3.001581795 0.01645863596 0) (2.992928777 0.00285722073 0));
+    }
+    bottom
+    {
+        type            slip;
+    }
+    top
+    {
+        type            slip;
+    }
+    obstacle
+    {
+        type            slip;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary11to4
+    {
+        type            processor;
+        value           nonuniform List<vector> 2((2.995802545 -0.004100264453 0) (3.008217138 0.07875873216 0));
+    }
+    procBoundary11to5
+    {
+        type            processor;
+        value           nonuniform List<vector> 3((2.992545428 0.01395001736 0) (2.996978844 0.008987065279 0) (2.996978844 0.008987065279 0));
+    }
+    procBoundary11to17
+    {
+        type            processor;
+        value           nonuniform List<vector> 2((2.985166671 -0.001409772616 0) (2.978242708 -0.002879770474 0));
+    }
+}
+
+
+// ************************************************************************* //

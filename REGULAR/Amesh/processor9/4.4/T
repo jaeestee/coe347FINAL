@@ -1,0 +1,84 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "4.4";
+    object      T;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 1 0 0 0];
+
+internalField   nonuniform List<scalar> 5(1.017143731 1.016925286 1.027993578 1.017280262 1.052651967);
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           nonuniform 0();
+    }
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      nonuniform 0();
+        value           nonuniform 0();
+    }
+    bottom
+    {
+        type            slip;
+    }
+    top
+    {
+        type            slip;
+    }
+    obstacle
+    {
+        type            zeroGradient;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary9to3
+    {
+        type            processor;
+        value           nonuniform List<scalar> 2(1.004245638 1.011882931);
+    }
+    procBoundary9to4
+    {
+        type            processor;
+        value           nonuniform List<scalar> 2(1.01039418 0.9952831739);
+    }
+    procBoundary9to8
+    {
+        type            processor;
+        value           uniform 1.001686536;
+    }
+    procBoundary9to14
+    {
+        type            processor;
+        value           uniform 1.027198887;
+    }
+    procBoundary9to15
+    {
+        type            processor;
+        value           nonuniform List<scalar> 3(0.9933704363 0.9933704363 0.957637653);
+    }
+    procBoundary9to20
+    {
+        type            processor;
+        value           uniform 1.094006489;
+    }
+}
+
+
+// ************************************************************************* //

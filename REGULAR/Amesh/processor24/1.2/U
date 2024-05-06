@@ -1,0 +1,69 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    location    "1.2";
+    object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   nonuniform List<vector> 5((3 -2.869310833e-15 0) (3 -3.585375738e-16 0) (3 -2.827047031e-15 0) (3 -4.840253841e-15 0) (3 -4.224661325e-15 0));
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           uniform (3 0 0);
+    }
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      nonuniform 0();
+        value           nonuniform 0();
+    }
+    bottom
+    {
+        type            slip;
+    }
+    top
+    {
+        type            slip;
+    }
+    obstacle
+    {
+        type            slip;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary24to18
+    {
+        type            processor;
+        value           nonuniform List<vector> 4((3 -5.015705731e-16 0) (3 -1.099432826e-15 0) (3 -1.654923685e-15 0) (3 -1.654923685e-15 0));
+    }
+    procBoundary24to25
+    {
+        type            processor;
+        value           nonuniform List<vector> 3((3 -2.277504531e-15 0) (3 -2.277504531e-15 0) (3 -3.466540816e-15 0));
+    }
+    procBoundary24to30
+    {
+        type            processor;
+        value           nonuniform List<vector> 4((3 -1.309937653e-17 0) (3 3.93154019e-16 0) (3 2.205371908e-16 0) (3 -1.085822517e-15 0));
+    }
+}
+
+
+// ************************************************************************* //

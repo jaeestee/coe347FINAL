@@ -1,0 +1,64 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    location    "3";
+    object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   nonuniform List<vector> 8((3 8.46861724e-16 0) (3 2.840498513e-15 0) (3 2.362734197e-15 0) (3 1.497775852e-15 0) (3 1.916565959e-15 0) (3 4.182807479e-15 0) (3 3.535772179e-15 0) (3 2.534878757e-15 0));
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           uniform (3 0 0);
+    }
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      nonuniform 0();
+        value           nonuniform 0();
+    }
+    bottom
+    {
+        type            slip;
+    }
+    top
+    {
+        type            slip;
+    }
+    obstacle
+    {
+        type            slip;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary30to24
+    {
+        type            processor;
+        value           nonuniform List<vector> 4((3 -1.634608884e-15 0) (3 -1.803724145e-15 0) (3 -2.796690365e-15 0) (3 -2.728205719e-15 0));
+    }
+    procBoundary30to31
+    {
+        type            processor;
+        value           nonuniform List<vector> 2((3 -6.563210568e-17 0) (3 1.131546146e-15 0));
+    }
+}
+
+
+// ************************************************************************* //

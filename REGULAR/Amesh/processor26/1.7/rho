@@ -1,0 +1,86 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "1.7";
+    object      rho;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [1 -3 0 0 0 0 0];
+
+internalField   nonuniform List<scalar> 5(1.743551094 1.427515059 1.446759981 1.49330809 1.400791634);
+
+boundaryField
+{
+    inlet
+    {
+        type            calculated;
+        value           nonuniform 0();
+    }
+    outlet
+    {
+        type            calculated;
+        value           nonuniform 0();
+    }
+    bottom
+    {
+        type            calculated;
+        value           nonuniform 0();
+    }
+    top
+    {
+        type            calculated;
+        value           nonuniform 0();
+    }
+    obstacle
+    {
+        type            calculated;
+        value           uniform 1.743551094;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary26to20
+    {
+        type            processor;
+        value           nonuniform List<scalar> 3(1.589830578 1.651401371 1.651401371);
+    }
+    procBoundary26to25
+    {
+        type            processor;
+        value           uniform 1.411550958;
+    }
+    procBoundary26to27
+    {
+        type            processor;
+        value           uniform 1.540814184;
+    }
+    procBoundary26to31
+    {
+        type            processor;
+        value           uniform 1.400162857;
+    }
+    procBoundary26to32
+    {
+        type            processor;
+        value           nonuniform List<scalar> 4(1.402318043 1.405677073 1.402318043 1.400006382);
+    }
+    procBoundary26to33
+    {
+        type            processor;
+        value           uniform 1.488425996;
+    }
+}
+
+
+// ************************************************************************* //

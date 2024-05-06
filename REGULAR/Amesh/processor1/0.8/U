@@ -1,0 +1,79 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    location    "0.8";
+    object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   nonuniform List<vector> 5((3 -1.285174027e-15 0) (3 -1.415833243e-15 0) (3 -1.321559781e-15 0) (3 5.411991867e-13 0) (2.999999986 -2.810562946e-08 0));
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           nonuniform 0();
+    }
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      nonuniform 0();
+        value           nonuniform 0();
+    }
+    bottom
+    {
+        type            slip;
+    }
+    top
+    {
+        type            slip;
+    }
+    obstacle
+    {
+        type            slip;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary1to0
+    {
+        type            processor;
+        value           uniform (3 -7.969741827e-16 0);
+    }
+    procBoundary1to2
+    {
+        type            processor;
+        value           uniform (3.000000019 4.802224335e-09 0);
+    }
+    procBoundary1to6
+    {
+        type            processor;
+        value           uniform (3 -1.463042588e-15 0);
+    }
+    procBoundary1to7
+    {
+        type            processor;
+        value           nonuniform List<vector> 5((3 -9.613000785e-16 0) (3 -9.613000785e-16 0) (3 3.310597015e-15 0) (3 -9.613000785e-16 0) (2.999989967 -1.740760388e-05 0));
+    }
+    procBoundary1to8
+    {
+        type            processor;
+        value           uniform (3.000000259 3.056004983e-07 0);
+    }
+}
+
+
+// ************************************************************************* //

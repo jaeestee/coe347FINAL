@@ -1,0 +1,74 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    location    "2.4";
+    object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   nonuniform List<vector> 5((3.000000281 3.197918925e-07 0) (2.999999228 -1.840871649e-06 0) (2.999724549 -0.000530942526 0) (2.999339824 -0.001322673948 0) (2.998204366 -0.003813862059 0));
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           nonuniform 0();
+    }
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      nonuniform 0();
+        value           nonuniform 0();
+    }
+    bottom
+    {
+        type            slip;
+    }
+    top
+    {
+        type            slip;
+    }
+    obstacle
+    {
+        type            slip;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary8to1
+    {
+        type            processor;
+        value           uniform (2.999999984 -2.932179227e-08 0);
+    }
+    procBoundary8to2
+    {
+        type            processor;
+        value           nonuniform List<vector> 5((3.000000014 4.804336575e-09 0) (3.000000016 3.100728318e-09 0) (2.999997483 -1.149596072e-05 0) (2.999997483 -1.149596072e-05 0) (2.99998852 -2.855354737e-05 0));
+    }
+    procBoundary8to9
+    {
+        type            processor;
+        value           uniform (2.993942453 -0.03392349013 0);
+    }
+    procBoundary8to14
+    {
+        type            processor;
+        value           nonuniform List<vector> 5((2.999949045 -8.604203407e-05 0) (2.999949045 -8.604203407e-05 0) (2.989086588 -0.02030736813 0) (2.98277845 -0.03450056506 0) (2.966723214 -0.07474729282 0));
+    }
+}
+
+
+// ************************************************************************* //

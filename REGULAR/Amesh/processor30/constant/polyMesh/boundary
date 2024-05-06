@@ -1,0 +1,84 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       polyBoundaryMesh;
+    location    "constant/polyMesh";
+    object      boundary;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+8
+(
+    inlet
+    {
+        type            patch;
+        nFaces          2;
+        startFace       10;
+    }
+    outlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       12;
+    }
+    bottom
+    {
+        type            slip;
+        inGroups        List<word> 1(slip);
+        nFaces          0;
+        startFace       12;
+    }
+    top
+    {
+        type            slip;
+        inGroups        List<word> 1(slip);
+        nFaces          4;
+        startFace       12;
+    }
+    obstacle
+    {
+        type            wall;
+        inGroups        List<word> 1(wall);
+        nFaces          0;
+        startFace       16;
+    }
+    defaultFaces
+    {
+        type            empty;
+        inGroups        List<word> 1(empty);
+        nFaces          16;
+        startFace       16;
+    }
+    procBoundary30to24
+    {
+        type            processor;
+        inGroups        List<word> 1(processor);
+        nFaces          4;
+        startFace       32;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        30;
+        neighbProcNo    24;
+    }
+    procBoundary30to31
+    {
+        type            processor;
+        inGroups        List<word> 1(processor);
+        nFaces          2;
+        startFace       36;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        30;
+        neighbProcNo    31;
+    }
+)
+
+// ************************************************************************* //
