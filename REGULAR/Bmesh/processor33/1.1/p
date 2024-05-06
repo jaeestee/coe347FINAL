@@ -1,0 +1,99 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "1.1";
+    object      p;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [1 -1 -2 0 0 0 0];
+
+internalField   nonuniform List<scalar> 
+23
+(
+1.096298815
+1.173809594
+1.168652544
+1.000881429
+1.02649678
+1.101348788
+1.144210361
+1.000024062
+1.004033356
+1.031054843
+1.08985137
+1.000000305
+1.000357842
+1.005324618
+1.034257116
+1.000000001
+1.0000195
+1.000555554
+1.007570521
+1
+1.000000625
+1.000036198
+1.000955122
+)
+;
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           nonuniform 0();
+    }
+    outlet
+    {
+        type            zeroGradient;
+    }
+    bottom
+    {
+        type            slip;
+    }
+    top
+    {
+        type            slip;
+    }
+    obstacle
+    {
+        type            zeroGradient;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary33to26
+    {
+        type            processor;
+        value           uniform 1.000000162;
+    }
+    procBoundary33to27
+    {
+        type            processor;
+        value           nonuniform List<scalar> 5(1.185337626 1.180654471 1.129814414 1.014075236 1.014075236);
+    }
+    procBoundary33to32
+    {
+        type            processor;
+        value           nonuniform List<scalar> 4(0.9999999986 0.999999999 0.9999999997 1);
+    }
+    procBoundary33to34
+    {
+        type            processor;
+        value           nonuniform List<scalar> 6(1.119405378 1.143882863 1.141038001 1.092605549 1.034710923 1.008595356);
+    }
+}
+
+
+// ************************************************************************* //

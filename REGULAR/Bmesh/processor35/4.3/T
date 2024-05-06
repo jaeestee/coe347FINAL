@@ -1,0 +1,93 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "4.3";
+    object      T;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 1 0 0 0];
+
+internalField   nonuniform List<scalar> 
+25
+(
+1.016852186
+0.9875270396
+0.9989883412
+1.006973389
+0.9741466442
+0.9829478181
+0.9967618166
+0.9802175584
+0.977439495
+0.9835073378
+0.9945198925
+0.9774488082
+0.9821075844
+1.018170808
+0.996527538
+0.9966374007
+1.032354906
+1.027017962
+1.016661518
+1.043074412
+1.048071684
+1.03907948
+1.048065506
+1.061090461
+1.057113858
+)
+;
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           nonuniform 0();
+    }
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      uniform 1;
+        value           nonuniform List<scalar> 9(1.016855259 1.00697317 0.996761655 0.983507363 0.9821075932 0.99663741 1.016661521 1.039079478 1.057113857);
+    }
+    bottom
+    {
+        type            slip;
+    }
+    top
+    {
+        type            slip;
+    }
+    obstacle
+    {
+        type            zeroGradient;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary35to29
+    {
+        type            processor;
+        value           nonuniform List<scalar> 4(1.024565679 1.013436404 1.01501379 1.01501379);
+    }
+    procBoundary35to34
+    {
+        type            processor;
+        value           nonuniform List<scalar> 8(0.9769761802 0.9709051867 0.9874974142 1.015566613 1.032597541 1.035190685 1.034036224 1.029602907);
+    }
+}
+
+
+// ************************************************************************* //

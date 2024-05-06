@@ -1,0 +1,90 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    location    "4.5";
+    object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   nonuniform List<vector> 
+22
+(
+(3 -7.652085644e-18 0)
+(3 -3.605239756e-16 0)
+(3 -5.0212408e-16 0)
+(3 -2.015973677e-15 0)
+(3 -2.007349787e-15 0)
+(3 -1.246556737e-15 0)
+(3 -1.850646614e-16 0)
+(3 4.331146035e-17 0)
+(3 7.223518371e-16 0)
+(3 -3.360372691e-17 0)
+(3 4.706736677e-16 0)
+(3 2.837996219e-15 0)
+(3 -3.043674965e-16 0)
+(3 -1.306925862e-15 0)
+(3 -3.430272046e-16 0)
+(3 6.882077737e-16 0)
+(3 2.31197156e-15 0)
+(3 2.938210693e-15 0)
+(3 6.660787753e-16 0)
+(3 -4.780546259e-16 0)
+(3 -6.9668665e-16 0)
+(3 4.822493577e-16 0)
+)
+;
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           uniform (3 0 0);
+    }
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      nonuniform 0();
+        value           nonuniform 0();
+    }
+    bottom
+    {
+        type            slip;
+    }
+    top
+    {
+        type            slip;
+    }
+    obstacle
+    {
+        type            slip;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary0to1
+    {
+        type            processor;
+        value           nonuniform List<vector> 3((3 -1.063309653e-15 0) (3 2.271813948e-15 0) (3 3.999830147e-15 0));
+    }
+    procBoundary0to6
+    {
+        type            processor;
+        value           nonuniform List<vector> 7((3 1.691141149e-15 0) (3 2.309913789e-15 0) (3 2.314638419e-16 0) (3 1.009112433e-15 0) (3 7.349648831e-16 0) (3 1.691141149e-15 0) (3 1.807708543e-15 0));
+    }
+}
+
+
+// ************************************************************************* //

@@ -1,0 +1,98 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "1";
+    object      p;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [1 -1 -2 0 0 0 0];
+
+internalField   nonuniform List<scalar> 
+22
+(
+0.9818596302
+0.985833295
+0.9930635384
+0.9954171047
+0.9806342097
+0.9845954188
+0.9931141339
+0.9969500181
+0.9802170205
+0.9845134596
+0.9932878185
+0.9967981031
+0.9762369411
+0.9843290416
+0.9917060444
+0.9983707475
+0.9756025321
+0.9855067426
+0.9934725469
+1.000245315
+0.9762277944
+0.9881214376
+)
+;
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           nonuniform 0();
+    }
+    outlet
+    {
+        type            zeroGradient;
+    }
+    bottom
+    {
+        type            slip;
+    }
+    top
+    {
+        type            slip;
+    }
+    obstacle
+    {
+        type            zeroGradient;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary17to11
+    {
+        type            processor;
+        value           nonuniform List<scalar> 4(0.9878362875 0.9896976824 0.9947388022 0.9970171515);
+    }
+    procBoundary17to16
+    {
+        type            processor;
+        value           nonuniform List<scalar> 5(1.015135271 1.013786429 1.014774902 1.012099496 1.012928584);
+    }
+    procBoundary17to22
+    {
+        type            processor;
+        value           uniform 1.01637033;
+    }
+    procBoundary17to23
+    {
+        type            processor;
+        value           nonuniform List<scalar> 5(0.997099142 0.9990637455 0.9764693636 0.997099142 0.987867732);
+    }
+}
+
+
+// ************************************************************************* //

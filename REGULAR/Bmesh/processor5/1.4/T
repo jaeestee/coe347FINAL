@@ -1,0 +1,95 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "1.4";
+    object      T;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 1 0 0 0];
+
+internalField   nonuniform List<scalar> 
+22
+(
+1.048067665
+1.061097999
+1.057124757
+1.0430766
+1.048078299
+1.039089501
+1.032355359
+1.027024146
+1.01666685
+1.018172861
+0.9965281201
+0.9966384659
+0.9945196951
+0.9774560969
+0.9821078105
+0.9802122116
+0.9774593295
+0.9835099427
+0.9741490921
+0.982970519
+0.9967561561
+0.9875268254
+)
+;
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           nonuniform 0();
+    }
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      uniform 1;
+        value           nonuniform List<scalar> 7(1.057124803 1.039089543 1.016666881 0.9966384577 0.9821075568 0.9835096074 0.9967552171);
+    }
+    bottom
+    {
+        type            slip;
+    }
+    top
+    {
+        type            slip;
+    }
+    obstacle
+    {
+        type            zeroGradient;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary5to4
+    {
+        type            processor;
+        value           nonuniform List<scalar> 6(1.02960406 1.03403783 1.035192732 1.032598152 1.01556888 0.9874821916);
+    }
+    procBoundary5to10
+    {
+        type            processor;
+        value           nonuniform List<scalar> 2(0.9708918876 0.976958941);
+    }
+    procBoundary5to11
+    {
+        type            processor;
+        value           nonuniform List<scalar> 4(0.9990243173 1.006980627 0.9990243173 1.013469832);
+    }
+}
+
+
+// ************************************************************************* //

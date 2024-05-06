@@ -1,0 +1,93 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "2";
+    object      T;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 1 0 0 0];
+
+internalField   nonuniform List<scalar> 
+25
+(
+1.016857786
+0.9875154218
+0.998979856
+1.006967999
+0.974145364
+0.9829508582
+0.9967624146
+0.9802105616
+0.9774455468
+0.9835106556
+0.9945176171
+0.9774505584
+0.9821093439
+1.018170537
+0.9965263897
+0.9966373844
+1.032354763
+1.027018038
+1.016661592
+1.043074427
+1.048071816
+1.03907961
+1.048065536
+1.061090505
+1.057113866
+)
+;
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           nonuniform 0();
+    }
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      uniform 1;
+        value           nonuniform List<scalar> 9(1.016853484 1.00696759 0.9967622896 0.9835105879 0.9821092915 0.9966373904 1.016661598 1.039079606 1.057113864);
+    }
+    bottom
+    {
+        type            slip;
+    }
+    top
+    {
+        type            slip;
+    }
+    obstacle
+    {
+        type            zeroGradient;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary35to29
+    {
+        type            processor;
+        value           nonuniform List<scalar> 4(1.024643009 1.013437641 1.014992977 1.014992977);
+    }
+    procBoundary35to34
+    {
+        type            processor;
+        value           nonuniform List<scalar> 8(0.9769735223 0.9709029198 0.9874937596 1.015566937 1.032597862 1.03519075 1.034036249 1.029602894);
+    }
+}
+
+
+// ************************************************************************* //

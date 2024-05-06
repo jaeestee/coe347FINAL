@@ -1,0 +1,96 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    location    "2.8";
+    object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   nonuniform List<vector> 
+23
+(
+(3 -7.47403652e-10 0)
+(3 -7.52024467e-10 0)
+(3.000000001 -1.434837817e-09 0)
+(3 -1.181315626e-09 0)
+(3 -9.121575675e-10 0)
+(3 -2.042332819e-11 0)
+(3 -7.883385739e-11 0)
+(3 -1.961421932e-10 0)
+(3 -3.227773822e-10 0)
+(3 -5.031319855e-10 0)
+(3 -6.85230774e-10 0)
+(3 -1.18830851e-13 0)
+(3 -1.047384121e-12 0)
+(3 -8.761307752e-12 0)
+(3 -2.156450105e-11 0)
+(3 -5.220155497e-11 0)
+(3 -1.737294024e-10 0)
+(3 4.981370178e-16 0)
+(3 -3.769355915e-16 0)
+(3 -3.653914336e-14 0)
+(3 -2.441878317e-13 0)
+(3 -7.81598761e-13 0)
+(3 -1.173785744e-11 0)
+)
+;
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           nonuniform 0();
+    }
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      nonuniform 0();
+        value           nonuniform 0();
+    }
+    bottom
+    {
+        type            slip;
+    }
+    top
+    {
+        type            slip;
+    }
+    obstacle
+    {
+        type            slip;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary32to26
+    {
+        type            processor;
+        value           nonuniform List<vector> 7((3.000000001 -1.666309932e-09 0) (3 1.83741126e-10 0) (3.000000002 -4.603630151e-09 0) (2.999999787 3.91028202e-07 0) (2.999999984 1.303099002e-07 0) (3 -3.882187927e-10 0) (3 -3.882187927e-10 0));
+    }
+    procBoundary32to31
+    {
+        type            processor;
+        value           nonuniform List<vector> 3((3 -4.523744543e-12 0) (3 -5.812328267e-15 0) (3 3.424077986e-16 0));
+    }
+    procBoundary32to33
+    {
+        type            processor;
+        value           nonuniform List<vector> 4((2.999992948 1.622709998e-05 0) (2.999999917 1.864455009e-07 0) (3 1.011108276e-09 0) (3 -6.009811444e-12 0));
+    }
+}
+
+
+// ************************************************************************* //

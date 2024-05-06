@@ -1,0 +1,90 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    location    "0.4";
+    object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   nonuniform List<vector> 
+22
+(
+(3 2.504903594e-16 0)
+(3 -1.472749139e-15 0)
+(3 -2.179312423e-15 0)
+(3 -5.541498882e-16 0)
+(3 -3.050847493e-16 0)
+(3 1.500391688e-16 0)
+(3 -3.827280193e-16 0)
+(3 -1.83596554e-15 0)
+(3 -2.254399329e-15 0)
+(3 -2.430678823e-16 0)
+(3 -3.067038668e-16 0)
+(3 -5.890181936e-16 0)
+(3 -1.229255e-15 0)
+(3 -7.198361872e-16 0)
+(3 -4.595600798e-16 0)
+(3 -1.419709678e-15 0)
+(3 -5.511969307e-16 0)
+(3 -3.114339155e-16 0)
+(3 -7.411663251e-16 0)
+(3 1.470552059e-15 0)
+(3 1.532188975e-15 0)
+(3 1.188822107e-15 0)
+)
+;
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           uniform (3 0 0);
+    }
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      nonuniform 0();
+        value           nonuniform 0();
+    }
+    bottom
+    {
+        type            slip;
+    }
+    top
+    {
+        type            slip;
+    }
+    obstacle
+    {
+        type            slip;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary0to1
+    {
+        type            processor;
+        value           nonuniform List<vector> 3((3 9.313486194e-16 0) (3 -1.027387042e-16 0) (3 -2.170511839e-15 0));
+    }
+    procBoundary0to6
+    {
+        type            processor;
+        value           nonuniform List<vector> 7((3 1.662046687e-15 0) (3 1.823167269e-15 0) (3 4.733801904e-16 0) (3 6.123106173e-16 0) (3 5.063244318e-16 0) (3 1.662046687e-15 0) (3 5.568240093e-16 0));
+    }
+}
+
+
+// ************************************************************************* //

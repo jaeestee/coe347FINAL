@@ -1,0 +1,90 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    location    "2.9";
+    object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   nonuniform List<vector> 
+22
+(
+(3 2.480010745e-17 0)
+(3 7.463043176e-17 0)
+(3 1.911727724e-16 0)
+(3 -3.151837391e-16 0)
+(3 -1.959273725e-16 0)
+(3 8.473584044e-16 0)
+(3 -5.102499686e-18 0)
+(3 6.248775626e-17 0)
+(3 3.683279125e-16 0)
+(3 6.434670289e-16 0)
+(3 1.109391832e-15 0)
+(3 1.274960921e-15 0)
+(3 2.296185898e-16 0)
+(3 3.098955294e-17 0)
+(3 4.254997318e-16 0)
+(3 7.191848671e-16 0)
+(3 3.781158715e-16 0)
+(3 -1.709828418e-15 0)
+(3 -8.032166582e-17 0)
+(3 -2.007358849e-16 0)
+(3 3.053749517e-17 0)
+(3 -3.585574633e-16 0)
+)
+;
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           uniform (3 0 0);
+    }
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      nonuniform 0();
+        value           nonuniform 0();
+    }
+    bottom
+    {
+        type            slip;
+    }
+    top
+    {
+        type            slip;
+    }
+    obstacle
+    {
+        type            slip;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary0to1
+    {
+        type            processor;
+        value           nonuniform List<vector> 3((3 1.073361105e-15 0) (3 5.571777436e-16 0) (3 -2.571738954e-15 0));
+    }
+    procBoundary0to6
+    {
+        type            processor;
+        value           nonuniform List<vector> 7((3 -1.029911002e-15 0) (3 -9.26403354e-16 0) (3 -1.823350021e-15 0) (3 -2.016317023e-15 0) (3 -2.650388896e-15 0) (3 -1.029911002e-15 0) (3 -2.933261848e-15 0));
+    }
+}
+
+
+// ************************************************************************* //

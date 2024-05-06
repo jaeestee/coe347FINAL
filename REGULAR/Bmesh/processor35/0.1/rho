@@ -1,0 +1,95 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0.1";
+    object      rho;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [1 -3 0 0 0 0 0];
+
+internalField   nonuniform List<scalar> 
+25
+(
+1.400005039
+1.399935287
+1.400004643
+1.40000504
+1.400000396
+1.400005021
+1.40000504
+1.400004996
+1.40000504
+1.40000504
+1.40000504
+1.40000504
+1.40000504
+1.40000504
+1.40000504
+1.40000504
+1.40000504
+1.40000504
+1.40000504
+1.40000504
+1.40000504
+1.40000504
+1.40000504
+1.40000504
+1.40000504
+)
+;
+
+boundaryField
+{
+    inlet
+    {
+        type            calculated;
+        value           nonuniform 0();
+    }
+    outlet
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 9(1.400005038 1.40000504 1.40000504 1.40000504 1.40000504 1.40000504 1.40000504 1.40000504 1.40000504);
+    }
+    bottom
+    {
+        type            calculated;
+        value           nonuniform 0();
+    }
+    top
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 3(1.40000504 1.40000504 1.40000504);
+    }
+    obstacle
+    {
+        type            calculated;
+        value           nonuniform 0();
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary35to29
+    {
+        type            processor;
+        value           nonuniform List<scalar> 4(1.400005031 1.399754105 1.400002917 1.400002917);
+    }
+    procBoundary35to34
+    {
+        type            processor;
+        value           nonuniform List<scalar> 8(1.39820241 1.399866523 1.400004043 1.400005066 1.400005057 1.400005042 1.40000504 1.40000504);
+    }
+}
+
+
+// ************************************************************************* //

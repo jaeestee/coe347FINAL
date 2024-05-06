@@ -1,0 +1,93 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0.2";
+    object      T;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 1 0 0 0];
+
+internalField   nonuniform List<scalar> 
+25
+(
+0.9974975637
+0.9856507473
+0.9925722191
+0.9979483897
+0.9856709591
+0.993125552
+0.9985047947
+0.992186598
+0.9961044927
+0.999250689
+0.9985268853
+0.9991351452
+0.999827069
+0.9999463235
+0.9999601267
+0.9999900145
+1.000011255
+1.000000959
+0.9999999661
+1.000005633
+1.000000887
+1.000000044
+1.000000599
+1.000000254
+1.000000028
+)
+;
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           nonuniform 0();
+    }
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      uniform 1;
+        value           nonuniform List<scalar> 9(0.9975540608 0.9980103258 0.9985619968 0.9992879065 0.9998387663 0.9999909444 0.999999972 1.000000041 1.000000026);
+    }
+    bottom
+    {
+        type            slip;
+    }
+    top
+    {
+        type            slip;
+    }
+    obstacle
+    {
+        type            zeroGradient;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary35to29
+    {
+        type            processor;
+        value           nonuniform List<scalar> 4(0.9973995331 0.9927815156 0.9940731213 0.9940731213);
+    }
+    procBoundary35to34
+    {
+        type            processor;
+        value           nonuniform List<scalar> 8(0.9773757768 0.9789689001 0.9902584473 0.9984698968 1.00005615 1.000056522 1.000013471 1.000000618);
+    }
+}
+
+
+// ************************************************************************* //

@@ -1,0 +1,108 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "3.4";
+    object      p;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [1 -1 -2 0 0 0 0];
+
+internalField   nonuniform List<scalar> 
+22
+(
+1.168626572
+1.093518917
+1.185316061
+1.180631253
+1.12979708
+1.241016545
+1.230306974
+1.127930012
+0.9713154595
+1.277113995
+1.133725515
+0.9155014229
+0.820879993
+1.192574916
+0.8368194773
+0.776839386
+0.8220618669
+0.6825132889
+0.6813032136
+0.7887702141
+0.656241116
+0.6974546596
+)
+;
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           nonuniform 0();
+    }
+    outlet
+    {
+        type            zeroGradient;
+    }
+    bottom
+    {
+        type            slip;
+    }
+    top
+    {
+        type            slip;
+    }
+    obstacle
+    {
+        type            zeroGradient;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary9to3
+    {
+        type            processor;
+        value           nonuniform List<scalar> 5(1.144178 1.014065037 1.096274778 1.173806809 1.173806809);
+    }
+    procBoundary9to4
+    {
+        type            processor;
+        value           nonuniform List<scalar> 2(1.119595464 1.008355257);
+    }
+    procBoundary9to8
+    {
+        type            processor;
+        value           uniform 1.006575727;
+    }
+    procBoundary9to10
+    {
+        type            processor;
+        value           nonuniform List<scalar> 5(0.8962390735 0.8363034878 0.9081957823 0.9496363718 0.9496363718);
+    }
+    procBoundary9to14
+    {
+        type            processor;
+        value           nonuniform List<scalar> 3(1.081451193 1.275360448 1.57436812);
+    }
+    procBoundary9to15
+    {
+        type            processor;
+        value           nonuniform List<scalar> 4(0.8493254565 0.6699382381 0.8493254565 0.722646206);
+    }
+}
+
+
+// ************************************************************************* //

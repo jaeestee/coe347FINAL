@@ -1,0 +1,105 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0.2";
+    object      T;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 1 0 0 0];
+
+internalField   nonuniform List<scalar> 
+22
+(
+1.041216483
+1.03294287
+1.04839262
+1.041657022
+1.032116659
+1.049172287
+1.041698678
+1.031114071
+1.049114241
+1.04070989
+1.030176729
+1.049309765
+1.049767987
+1.039133236
+1.02884905
+1.052246657
+1.050432659
+1.037682008
+1.027808468
+1.059273641
+1.050787373
+1.036175632
+)
+;
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           nonuniform 0();
+    }
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      nonuniform 0();
+        value           nonuniform 0();
+    }
+    bottom
+    {
+        type            slip;
+    }
+    top
+    {
+        type            slip;
+    }
+    obstacle
+    {
+        type            zeroGradient;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary16to10
+    {
+        type            processor;
+        value           nonuniform List<scalar> 4(1.039807884 1.033427224 1.045830623 1.045830623);
+    }
+    procBoundary16to11
+    {
+        type            processor;
+        value           uniform 1.013836982;
+    }
+    procBoundary16to15
+    {
+        type            processor;
+        value           nonuniform List<scalar> 7(1.0184545 1.031218905 1.041863505 1.041863505 0.9852836744 1.001578603 1.023465331);
+    }
+    procBoundary16to17
+    {
+        type            processor;
+        value           nonuniform List<scalar> 5(1.012692122 1.011768917 1.011003109 1.010272019 1.009664327);
+    }
+    procBoundary16to22
+    {
+        type            processor;
+        value           nonuniform List<scalar> 5(1.026512204 1.062296238 1.050944125 1.026512204 1.036199055);
+    }
+}
+
+
+// ************************************************************************* //

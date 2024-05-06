@@ -1,0 +1,98 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0.9";
+    object      p;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [1 -1 -2 0 0 0 0];
+
+internalField   nonuniform List<scalar> 
+22
+(
+0.9850899393
+0.9894733994
+0.9967788158
+0.9967242701
+0.9837694646
+0.9900159849
+0.9977546407
+0.9959822321
+0.9808813455
+0.9900830535
+0.9992909274
+0.9953999359
+0.9803942247
+0.9907665359
+1.000333632
+0.9965666522
+0.9767476639
+0.9891668148
+0.9950288203
+0.9984792564
+0.9708954419
+0.9863969477
+)
+;
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           nonuniform 0();
+    }
+    outlet
+    {
+        type            zeroGradient;
+    }
+    bottom
+    {
+        type            slip;
+    }
+    top
+    {
+        type            slip;
+    }
+    obstacle
+    {
+        type            zeroGradient;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary17to11
+    {
+        type            processor;
+        value           nonuniform List<scalar> 4(0.9830470617 0.987671516 0.9925884559 0.9953217056);
+    }
+    procBoundary17to16
+    {
+        type            processor;
+        value           nonuniform List<scalar> 5(1.016793823 1.017703472 1.014500996 1.013575329 1.015910748);
+    }
+    procBoundary17to22
+    {
+        type            processor;
+        value           uniform 1.013863244;
+    }
+    procBoundary17to23
+    {
+        type            processor;
+        value           nonuniform List<scalar> 5(0.9928818842 0.9976794344 0.9708046135 0.9928818842 0.9845032999);
+    }
+}
+
+
+// ************************************************************************* //

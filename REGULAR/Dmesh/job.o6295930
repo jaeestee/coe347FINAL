@@ -1,0 +1,8 @@
+/work2/09042/jo25672/frontera/COE347/coe347-openFOAM-Assignments/FINAL/FIXED/REGULAR/Dmesh
+Sun May  5 22:50:39 CDT 2024
+Running blockMesh on /work2/09042/jo25672/frontera/COE347/coe347-openFOAM-Assignments/FINAL/FIXED/REGULAR/Dmesh
+Running checkMesh on /work2/09042/jo25672/frontera/COE347/coe347-openFOAM-Assignments/FINAL/FIXED/REGULAR/Dmesh
+Running decomposePar on /work2/09042/jo25672/frontera/COE347/coe347-openFOAM-Assignments/FINAL/FIXED/REGULAR/Dmesh
+Running rhoCentralFoam in parallel on /work2/09042/jo25672/frontera/COE347/coe347-openFOAM-Assignments/FINAL/FIXED/REGULAR/Dmesh using 36 processes
+Running reconstructPar on /work2/09042/jo25672/frontera/COE347/coe347-openFOAM-Assignments/FINAL/FIXED/REGULAR/Dmesh
+Sun May  5 22:53:06 CDT 2024

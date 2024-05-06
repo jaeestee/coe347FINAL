@@ -1,0 +1,93 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "2.3";
+    object      p;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [1 -1 -2 0 0 0 0];
+
+internalField   nonuniform List<scalar> 
+22
+(
+0.9906530546
+0.9960030204
+0.9706162227
+0.985592012
+0.9902393587
+0.996321223
+0.9760524173
+0.9836586725
+0.991326728
+0.9960460347
+0.9803062228
+0.9886021199
+0.9969226313
+0.996278169
+0.9809675145
+0.9909224492
+0.9969103855
+0.9977879689
+0.9830616779
+0.989119647
+0.9950921295
+0.9971615469
+)
+;
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           nonuniform 0();
+    }
+    outlet
+    {
+        type            zeroGradient;
+    }
+    bottom
+    {
+        type            slip;
+    }
+    top
+    {
+        type            slip;
+    }
+    obstacle
+    {
+        type            zeroGradient;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary23to17
+    {
+        type            processor;
+        value           nonuniform List<scalar> 5(0.9952493687 0.997011106 0.9705212731 0.985063209 0.985063209);
+    }
+    procBoundary23to22
+    {
+        type            processor;
+        value           nonuniform List<scalar> 5(1.013711153 1.016740688 1.019408168 1.017597413 1.017601322);
+    }
+    procBoundary23to29
+    {
+        type            processor;
+        value           nonuniform List<scalar> 4(0.9834867112 0.9876616473 0.9931677792 0.9952486581);
+    }
+}
+
+
+// ************************************************************************* //

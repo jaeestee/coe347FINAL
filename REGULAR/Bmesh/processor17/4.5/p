@@ -1,0 +1,98 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "4.5";
+    object      p;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [1 -1 -2 0 0 0 0];
+
+internalField   nonuniform List<scalar> 
+22
+(
+0.982892586
+0.9870092906
+0.9916111472
+0.9946192923
+0.9829635572
+0.9886941122
+0.9943755264
+0.9959407647
+0.9816805522
+0.9896686939
+0.9958348523
+0.9953852776
+0.9809993912
+0.9885136251
+0.9968079917
+0.9973042104
+0.9754502725
+0.9880001592
+0.9947557174
+0.9994245496
+0.9704832312
+0.9875662432
+)
+;
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           nonuniform 0();
+    }
+    outlet
+    {
+        type            zeroGradient;
+    }
+    bottom
+    {
+        type            slip;
+    }
+    top
+    {
+        type            slip;
+    }
+    obstacle
+    {
+        type            zeroGradient;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary17to11
+    {
+        type            processor;
+        value           nonuniform List<scalar> 4(0.9814322704 0.9858727157 0.9886517334 0.9944629075);
+    }
+    procBoundary17to16
+    {
+        type            processor;
+        value           nonuniform List<scalar> 5(1.016193752 1.018511975 1.017172055 1.019428896 1.015508479);
+    }
+    procBoundary17to22
+    {
+        type            processor;
+        value           uniform 1.010212618;
+    }
+    procBoundary17to23
+    {
+        type            processor;
+        value           nonuniform List<scalar> 5(0.9917212123 0.9983517154 0.9704947423 0.9917212123 0.9850581443);
+    }
+}
+
+
+// ************************************************************************* //

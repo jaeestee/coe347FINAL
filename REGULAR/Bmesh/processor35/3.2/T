@@ -1,0 +1,93 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "3.2";
+    object      T;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 1 0 0 0];
+
+internalField   nonuniform List<scalar> 
+25
+(
+1.016830646
+0.9875013116
+0.9989660421
+1.006962338
+0.9741443948
+0.9829486903
+0.9967649401
+0.9802135016
+0.977439589
+0.9835088849
+0.9945200932
+0.9774487402
+0.9821089678
+1.018171163
+0.9965271696
+0.9966375035
+1.032354847
+1.027017679
+1.01666133
+1.043074401
+1.048071624
+1.039079451
+1.048065458
+1.061090461
+1.057113905
+)
+;
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           nonuniform 0();
+    }
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      uniform 1;
+        value           nonuniform List<scalar> 9(1.016828576 1.006962635 0.9967649937 0.9835088907 0.982108978 0.9966375004 1.016661334 1.039079455 1.057113905);
+    }
+    bottom
+    {
+        type            slip;
+    }
+    top
+    {
+        type            slip;
+    }
+    obstacle
+    {
+        type            zeroGradient;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary35to29
+    {
+        type            processor;
+        value           nonuniform List<scalar> 4(1.024652624 1.013388661 1.014941855 1.014941855);
+    }
+    procBoundary35to34
+    {
+        type            processor;
+        value           nonuniform List<scalar> 8(0.9769756845 0.9709043136 0.9874970562 1.015566862 1.032597629 1.035190745 1.034036255 1.029602878);
+    }
+}
+
+
+// ************************************************************************* //

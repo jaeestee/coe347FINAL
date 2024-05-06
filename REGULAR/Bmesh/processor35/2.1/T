@@ -1,0 +1,93 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "2.1";
+    object      T;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 1 0 0 0];
+
+internalField   nonuniform List<scalar> 
+25
+(
+1.016825883
+0.9875116458
+0.9989676348
+1.006966866
+0.974145654
+0.9829550016
+0.9967704139
+0.980211246
+0.9774456526
+0.9835126231
+0.9945173957
+0.977450376
+0.982111222
+1.018170295
+0.9965263039
+0.9966378388
+1.032354606
+1.027017628
+1.016661625
+1.043074396
+1.048071767
+1.039079678
+1.048065532
+1.061090541
+1.057113963
+)
+;
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           nonuniform 0();
+    }
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      uniform 1;
+        value           nonuniform List<scalar> 9(1.0168271 1.006967295 0.9967702708 0.9835125676 0.982111174 0.9966378313 1.016661635 1.03907968 1.057113961);
+    }
+    bottom
+    {
+        type            slip;
+    }
+    top
+    {
+        type            slip;
+    }
+    obstacle
+    {
+        type            zeroGradient;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+    procBoundary35to29
+    {
+        type            processor;
+        value           nonuniform List<scalar> 4(1.02460995 1.013392475 1.014944537 1.014944537);
+    }
+    procBoundary35to34
+    {
+        type            processor;
+        value           nonuniform List<scalar> 8(0.9769788446 0.9709045066 0.9874928129 1.0155669 1.032597726 1.035190718 1.034036236 1.029602894);
+    }
+}
+
+
+// ************************************************************************* //
