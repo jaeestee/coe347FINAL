@@ -1,0 +1,106 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+Build  : 7
+Exec   : blockMesh
+Date   : May 05 2024
+Time   : 21:19:00
+Host   : "c201-002.frontera.tacc.utexas.edu"
+PID    : 226444
+I/O    : uncollated
+Case   : /work2/09042/jo25672/frontera/COE347/coe347-openFOAM-Assignments/FINAL/FIXED/30V/10Angle
+nProcs : 1
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Creating block mesh from
+    "/work2/09042/jo25672/frontera/COE347/coe347-openFOAM-Assignments/FINAL/FIXED/30V/10Angle/system/blockMeshDict"
+Creating block edges
+No non-planar block faces defined
+Creating topology blocks
+Creating topology patches
+
+Creating block mesh topology
+--> FOAM Warning : 
+    From function Foam::polyMesh::polyMesh(const Foam::IOobject &, Foam::Field<Foam::Vector<double>> &&, const Foam::List<Foam::cellShape> &, const Foam::List<Foam::List<Foam::face>> &, const Foam::List<Foam::word> &, const Foam::PtrList<Foam::dictionary> &, const Foam::word &, const Foam::word &, bool)
+    in file meshes/polyMesh/polyMeshFromShapeMesh.C at line 873
+    Found 16 undefined faces in mesh; adding to default patch.
+
+Check topology
+
+	Basic statistics
+		Number of internal faces : 8
+		Number of boundary faces : 32
+		Number of defined boundary faces : 32
+		Number of undefined boundary faces : 0
+	Checking patch -> block consistency
+
+Creating block offsets
+Creating merge list .
+
+Creating polyMesh from blockMesh
+Creating points with scale 1
+    Block 0 cell size :
+        i : 0.006 .. 0.006
+        j : 0.005 .. 0.005
+        k : 0.1
+    Block 1 cell size :
+        i : 0.003 .. 0.003
+        j : 0.005 .. 0.005 0.004986671715 .. 0.004986671715 0.005 .. 0.005 0.004986671715 .. 0.004986671715 
+        k : 0.1
+    Block 2 cell size :
+        i : 0.011 .. 0.011
+        j : 0.003667171481 .. 0.003667171481
+        k : 0.1
+    Block 3 cell size :
+        i : 0.011 .. 0.011 0.01098 .. 0.01098 0.011 .. 0.011 0.01098 .. 0.01098 
+        j : 0.002155497837 .. 0.002155497837 0.002136953656 .. 0.002136953656 0.002155497837 .. 0.002155497837 0.002136953656 .. 0.002136953656 
+        k : 0.1
+    Block 4 cell size :
+        i : 0.009 .. 0.009 0.00902 0.009 .. 0.009 0.00902 
+        j : 0.002155497838 .. 0.002155497838 0.002136953656 .. 0.002136953656 0.002155497838 .. 0.002155497838 0.002136953656 .. 0.002136953656 
+        k : 0.1
+    Block 5 cell size :
+        i : 0.011 .. 0.011
+        j : 0.004725133365 .. 0.004725133365
+        k : 0.1
+    Block 6 cell size :
+        i : 0.003012565629 .. 0.003012565629 0.003012316084 .. 0.003012316084 0.003012565629 .. 0.003012565629 0.003012316084 .. 0.003012316084 
+        j : 0.005 .. 0.005 0.004997251334 .. 0.004997251334 0.005 .. 0.005 0.004997251334 .. 0.004997251334 
+        k : 0.1
+    Block 7 cell size :
+        i : 0.006 .. 0.006
+        j : 0.005 .. 0.005
+        k : 0.1
+Creating cells
+Creating patches
+
+Writing polyMesh
+----------------
+Mesh Information
+----------------
+  boundingBox: (0 -0.5 -0.05) (2 0.5 0.05)
+  nPoints: 161600
+  nCells: 80000
+  nFaces: 320800
+  nInternalFaces: 159200
+----------------
+Patches
+----------------
+  patch 0 (start: 159200 size: 200) name: inlet
+  patch 1 (start: 159400 size: 400) name: outlet
+  patch 2 (start: 159800 size: 300) name: bottom
+  patch 3 (start: 160100 size: 300) name: top
+  patch 4 (start: 160400 size: 400) name: obstacle
+  patch 5 (start: 160800 size: 160000) name: defaultFaces
+
+End
+
